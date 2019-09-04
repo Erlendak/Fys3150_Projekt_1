@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 start_time = time.time()
 
-n = 1000
+n = 10000
 _x0 = 0 # Initial condition
 _x1 = 1 # Initial condition
 h = (_x1 - _x0) / n # Step size

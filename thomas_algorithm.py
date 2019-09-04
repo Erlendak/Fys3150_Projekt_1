@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
+start_time = time.time()
+
 n = 10000
 _x0 = 0 # Initial condition
 _x1 = 1 # Initial condition
@@ -35,8 +38,13 @@ N = 9
 
 for i in range(1,n):
     _b_[N-i] = _b_[N-i] - (_c[N-i]*_b_[N-i+1] )
+print("--- %s seconds ---" % (time.time() - start_time))
+
 plt.plot(_x, _b_, label = "Approximation")
-#plt.plot(_x,( 1-(1-np.exp(-10))*_x - np.exp(-10*_x) ), label = "Analytical")
-#plt.plot(_x,( 100*np.exp(-10*_x) ), label = "test")
+plt.plot(_x,( 1-(1-np.exp(-10))*_x - np.exp(-10*_x) ), label = "Analytical")
 plt.legend()
+plt.grid()
+plt.xlabel("Distance ; Meter",size=15)
+plt.ylabel("Potential ; Volt",size=15)
+plt.title("Potential from charge\nFast special method ",size=15)
 plt.show()
