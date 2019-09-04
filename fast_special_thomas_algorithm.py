@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 start_time = time.time()
 
-n = 10000
+n = int(input("How many steps in the approximation: n = ") )
 _x0 = 0 # Initial condition
 _x1 = 1 # Initial condition
 h = (_x1 - _x0) / n # Step size
@@ -49,5 +49,5 @@ plt.ylabel("Potential ; Volt",size=15)
 plt.title("Potential from charge\nFast special method ",size=15)
 plt.show()
 
-Error = np.log(  abs( (_b-u)/u )  )
-print(np.max(Error[1:]))
+Error = np.log(  abs( (_b[1:]-u[1:])/u[1:] )  )
+print(np.max(Error))
