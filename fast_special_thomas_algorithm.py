@@ -12,10 +12,13 @@ _b = np.copy(b)
 
 d    = np.zeros(n) + 2
 _d   = np.copy(d)
+d0  = 2
 
 c    = np.zeros(n) - 1
 c[-1] = 0 # Initial condition
 _c   = np.copy(c)
+ac0 = -1
+
 
 a    =  np.zeros(n) - 1
 a[0] = 0 # Initial conditon
@@ -25,8 +28,8 @@ a[0] = 0 # Initial conditon
 _c[0] = _c[0]/_d[0]
 _b[0] = b[0]/d[0]
 for i in range(1,n):
-    _c[i] = (     c[i]  /  ( d[i] - (a[i]*_c[i-1])  )     )
-    _b[i] = ( (b[i] -(a[i]*_b[i-1] ) )   / (d[i]- (a[i]*_c[i-1]))   ) #_d[i] - (_b[i-1] * a[i-1] )  )
+    _c[i] = (     ac0  /  ( d0 - (ac0*_c[i-1])  )     )
+    _b[i] = ( (b[i] -(ac0*_b[i-1] ) )   / (d0- (ac0*_c[i-1]))   ) #_d[i] - (_b[i-1] * a[i-1] )  )
 
 
 _b_ = np.copy(_b)
