@@ -32,19 +32,24 @@ for i in range(1,n):
     _b[i] = ( (b[i] -(a[i]*_b[i-1] ) )   / (d[i]- (a[i]*_c[i-1]))   ) #_d[i] - (_b[i-1] * a[i-1] )  )
 
 
-_b_ = np.copy(_b)
+v = np.copy(_b)
 
 N = 9
 
 for i in range(1,n):
-    _b_[N-i] = _b_[N-i] - (_c[N-i]*_b_[N-i+1] )
+    v[N-i] = v[N-i] - (_c[N-i]*v[N-i+1] )
 print("--- %s seconds ---" % (time.time() - start_time))
 
-plt.plot(_x, _b_, label = "Approximation")
-plt.plot(_x,( 1-(1-np.exp(-10))*_x - np.exp(-10*_x) ), label = "Analytical")
+plt.plot(_x, v, label = "Approximation")
+
+u = 1-(1-np.exp(-10))*_x - np.exp(-10*_x)
+plt.plot(_x,u, label = "Analytical")
 plt.legend()
 plt.grid()
 plt.xlabel("Distance ; Meter",size=15)
 plt.ylabel("Potential ; Volt",size=15)
 plt.title("Potential from charge\nFast special method ",size=15)
 plt.show()
+
+Error = np.log(  abs( (v-u)/u )  )
+print(np.max(Error[1:]))
