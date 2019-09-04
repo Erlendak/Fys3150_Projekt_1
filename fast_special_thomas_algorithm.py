@@ -39,7 +39,8 @@ for i in range(1,n):
 
 print("--- %s seconds ---" % (time.time() - start_time))
 
-plt.plot(_x,( 1-(1-np.exp(-10))*_x - np.exp(-10*_x) ), label = "Analytical")
+u = 1-(1-np.exp(-10))*_x - np.exp(-10*_x)
+plt.plot(_x,u, label = "Analytical")
 plt.plot(_x, _b, label = "Approximation")
 plt.legend()
 plt.grid()
@@ -47,3 +48,6 @@ plt.xlabel("Distance ; Meter",size=15)
 plt.ylabel("Potential ; Volt",size=15)
 plt.title("Potential from charge\nFast special method ",size=15)
 plt.show()
+
+Error = np.log(  abs( (_b-u)/u )  )
+print(np.max(Error[1:]))
