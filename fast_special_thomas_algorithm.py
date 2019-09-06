@@ -14,11 +14,7 @@ ac0 = -1
 b =  100* np.exp(-10*_x)*h**2
 _b = np.copy(b)
 
-
-
 _c    = np.zeros(n-2) - 1
-#_c[-1] = 0 # Initial condition
-
 
 
 start_time = time.time()
@@ -31,8 +27,6 @@ for i in range(2,n-1):
     _b[i] = ( (b[i] -(ac0*_b[i-1] ) )   / (d- (ac0*_c[i-2]))   ) #d[i] - (_b[i-1] * a[i-1] )  )
 
 
-print(_b[-1])
-
 N = n-1
 for i in range(1,n-1):
     _b[N-i] = _b[N-i] - (_c[(N-1)-i]*_b[(N+1)-i] )
@@ -40,7 +34,6 @@ for i in range(1,n-1):
 
 print("--- %s seconds ---" % (time.time() - start_time))
 
-print(_b[1])
 u = 1-(1-np.exp(-10))*_x - np.exp(-10*_x)
 plt.plot(_x,u, label = "Analytical" , marker = '+')
 plt.plot(_x, _b, label = "Approximation", marker = '+')
@@ -53,4 +46,4 @@ plt.show()
 
 Error = np.log(  abs( (_b[1:]-u[1:])/u[1:] )  )
 print(np.max(Error))
-print(np.max(abs(_b[1:]) - abs(u[1:])))
+print(np.max(abs(_b) - abs(u)))
