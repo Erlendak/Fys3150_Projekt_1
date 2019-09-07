@@ -39,7 +39,8 @@ def test_accuracy():
     tol = 10e-5
     test = FastSpecialThomasAlgorithm(1000000)
     success = test._error() < tol
-    assert success,"Thomas algorithm is not as accurat as expected."
+    assert success,'''the fast special Thomas algorithm
+    is not as accurat as expected.'''
 
 if __name__ == '__main__':
     test_n_lesser_than_3()

@@ -10,6 +10,9 @@ class LUDecomposition():
     1 meter away from the charge.
     """
     def __init__(self, n):
+        if (n<3):
+            raise ValueError('''n is lesser than 3 and algorithm does
+            not support smaller than 3''')
         self.n = n
         _x0 = 0 # Initial condition
         _x1 = 1 # Initial condition
