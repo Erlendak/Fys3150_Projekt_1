@@ -31,8 +31,6 @@ class FastSpecialThomasAlorithm():
             _c[i-1] = (     ac0  /  ( d - (ac0*_c[i-2])  )     )
             _b[i] = ( (b[i] -(ac0*_b[i-1] ) )   / (d- (ac0*_c[i-2]))   ) #d[i] - (_b[i-1] * a[i-1] )  )
 
-
-        #N = (n-1)
         for i in range(1,n-1):
             _b[(n-1)-i] = _b[(n-1)-i] - (_c[(n-2)-i]*_b[n-i] )
         self.t = (time.time() - start_time)
@@ -61,8 +59,6 @@ class FastSpecialThomasAlorithm():
 
     def time(self):
         return(self.t)
-
-
 
 
 if __name__ == '__main__':

@@ -53,8 +53,6 @@ class LUDecomposition():
         return(self.t)
 
 
-
-
 if __name__ == '__main__':
     n = int(input("How many steps in the approximation: n = ") )
     test = LUDecomposition(n)
@@ -62,22 +60,3 @@ if __name__ == '__main__':
     print("--- %s seconds ---" % (test.time()))
     print(test.error())
     print(test._error())
-
-
-
-"""
-plt.plot(_x,v , label = "Approximation" , marker = '+')
-
-u = 1-(1-np.exp(-10))*_x - np.exp(-10*_x)
-plt.plot(_x,u, label = "Analytical" , marker = '+')
-plt.legend()
-plt.grid()
-plt.xlabel("Distance ; Meter",size=15)
-plt.ylabel("Potential ; Volt",size=15)
-plt.title("Potential from charge\nFast special method ",size=15)
-plt.show()
-
-Error = np.log(  abs( (v[1:]-u[1:])/u[1:] )  )
-print(np.max(Error))
-print(np.max( abs(abs(v) - abs(u) )))
-"""
