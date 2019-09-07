@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-class FastSpecialThomasAlorithm():
+class FastSpecialThomasAlgorithm():
     """¨
     Approximationm for the potential from a charge,
     using a system of differential equation and a augmented matrix
@@ -9,6 +9,9 @@ class FastSpecialThomasAlorithm():
     the thomas algorithm and a backwards substitution.
     """
     def __init__(self, n):
+        if (n<3):
+            raise ValueError('''n is lesser than 3 and algorithm does
+            not support smaller than 3''')
         self.n = n
         _x0 = 0 # Initial condition
         _x1 = 1 # Initial condition
@@ -63,7 +66,7 @@ class FastSpecialThomasAlorithm():
 
 if __name__ == '__main__':
     n = int(input("How many steps in the approximation: n = ") )
-    test = FastSpecialThomasAlorithm(n)
+    test = FastSpecialThomasAlgorithm(n)
     test.plot()
     print("--- %s seconds ---" % (test.time()))
     print(test.error())

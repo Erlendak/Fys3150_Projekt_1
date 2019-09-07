@@ -9,7 +9,7 @@ class ThomasAlgorithm():
     backwards substitution.
     """
     def __init__(self, n):
-        if n<3:
+        if (n<3):
             raise ValueError('''n is lesser than 3 and algorithm does
             not support smaller than 3''')
         self.n = n
