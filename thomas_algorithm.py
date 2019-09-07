@@ -31,8 +31,6 @@ for i in range(2,n-1):
     _b[i] = ( (b[i] -(a[i-2]*_b[i-1] ) )   / (d[i]- (a[i-2]*_c[i-2]))   ) #d[i] - (_b[i-1] * a[i-1] )  )
 
 
-v = np.copy(_b)
-
 N = n-1
 
 for i in range(1,n-1):
