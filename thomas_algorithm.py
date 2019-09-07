@@ -13,9 +13,9 @@ class ThomasAlorithm():
         _x0 = 0 # Initial condition
         _x1 = 1 # Initial condition
         h = (_x1 - _x0) / n # Step size
-        _x = np.linspace(_x0,_x1,n)
-        self.x = _x
-        b =  100* np.exp(-10*_x)*h**2
+        self.x = np.linspace(_x0,_x1,n)
+
+        b =  100* np.exp(-10*self.x)*h**2
         _b = np.copy(b)
 
         d    = np.zeros(n) + 2 # Diagonal elements
@@ -31,16 +31,12 @@ class ThomasAlorithm():
         _b[1] = b[1]/d[1]
         for i in range(2,n-1):
             _c[i-1] = (     c[i-1]  /  ( d[i-1] - (a[i-2]*_c[i-2])  )     )
-            _b[i] = ( (b[i] -(a[i-2]*_b[i-1] ) )   / (d[i]- (a[i-2]*_c[i-2]))   ) #d[i] - (_b[i-1] * a[i-1] )  )
-
-        N = n-1
-
+            _b[i] = ( (b[i] -(a[i-2]*_b[i-1] ) )   / (d[i]- (a[i-2]*_c[i-2])) )
         for i in range(1,n-1):
-            _b[N-i] = _b[N-i] - (_c[(N-1)-i]*_b[(N+1)-i] )
+            _b[(n-1) - i] = _b[(n-1)-i] - (_c[(n-2)-i]*_b[n-i] )
         self.t = (time.time() - start_time)
         self.v = _b
-        self.u = 1-(1-np.exp(-10))*_x - np.exp(-10*_x)
-        #return(self.t)
+        self.u = 1-(1-np.exp(-10))*self.x - np.exp(-10*self.x)
 
     def plot(self):
         plt.plot(self.x, self.v , label = "Approximation" , marker = '+')
