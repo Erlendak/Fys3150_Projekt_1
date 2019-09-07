@@ -52,4 +52,4 @@ plt.show()
 
 Error = np.log(  abs( (_b[1:]-u[1:])/u[1:] )  )
 print(np.max(Error))
-print(np.max(abs(_b) - abs(u)))
+print(np.max(abs(abs(_b) - abs(u))))
