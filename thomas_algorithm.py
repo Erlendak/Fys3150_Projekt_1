@@ -42,14 +42,14 @@ class ThomasAlgorithm():
         self.u = 1-(1-np.exp(-10))*self.x - np.exp(-10*self.x)
 
     def plot(self):
-        plt.plot(self.x, self.v , label = "Approximation" , marker = '+')
+        plt.plot(self.x, self.v , label = "Numerisk tilnærming" , marker = '+')
 
-        plt.plot(self.x , self.u , label = "Analytical")
+        plt.plot(self.x , self.u , label = "Analytisk")
         plt.legend()
         plt.grid()
-        plt.xlabel("Distance ; Meter",size=15)
-        plt.ylabel("Potential ; Volt",size=15)
-        plt.title("Potential from charge\nFast special method ",size=15)
+        plt.xlabel("Avstand ; Meter",size=15)
+        plt.ylabel("Potensial ; Volt",size=15)
+        plt.title("Potensialet fra ladningen\nThomas algoritmen",size=15)
         plt.show()
 
     def error(self):
@@ -70,6 +70,6 @@ if __name__ == '__main__':
     n = int(input("How many steps in the approximation: n = ") )
     test = ThomasAlgorithm(n)
     test.plot()
-    print("--- %s seconds ---" % (test.time()))
+    print("--- %s Sekunder ---" % (test.time()))
     print(test.error())
     print(test._error())
