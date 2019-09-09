@@ -35,8 +35,8 @@ for i in range(n-1):
 t_lud = []
 e_lud = []
 p_lud = []
-for i in range(n-1):
-    approximation = FastSpecialThomasAlgorithm(N[i])
+for i in range(n-5):
+    approximation = LUDecomposition(N[i])
     t_lud.append(approximation.time())
     e_lud.append(approximation.error())
     p_lud.append(approximation._error())
@@ -48,7 +48,7 @@ H = 1/N
 
 plt.plot(N , t_fsta , label = "Fast Special Thomas Algorithm")
 plt.plot(N , t_ta , label = "Thomas Algorithm")
-plt.plot(N , t_lud , label = "LU Decomposition")
+plt.plot(N[:-4] , t_lud , label = "LU Decomposition")
 plt.legend()
 plt.grid()
 plt.xlabel("Antall itereringer ; ",size=15)
@@ -60,7 +60,7 @@ plt.show()
 
 plt.plot(H , e_ta , label = "Thomas Algorithm", marker = 7)#'caretdown')
 plt.plot(H , e_fsta , label = "Fast Special Thomas Algorithm", marker = 6)# 'caretop')
-plt.plot(H , e_lud , label = "LU Decomposition")
+plt.plot(H[:-4] , e_lud , label = "LU Decomposition",marker = 0)
 plt.legend()
 plt.grid()
 plt.xlabel("Stegstørrelse ; Meter",size=15)
@@ -72,7 +72,7 @@ plt.show()
 
 plt.plot(H , p_ta , label = "Thomas Algorithm", marker = 7)#'caretdown')
 plt.plot(H , p_fsta , label = "Fast Special Thomas Algorithm", marker = 6)# 'caretop')
-plt.plot(H , p_lud , label = "LU Decomposition")
+plt.plot(H[:-4] , p_lud , label = "LU Decomposition",marker = 0)
 plt.legend()
 plt.grid()
 plt.xlabel("Stegstørrelse ; Meter",size=15)
