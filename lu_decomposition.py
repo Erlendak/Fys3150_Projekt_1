@@ -25,7 +25,6 @@ class LUDecomposition():
         a    = np.diag( (np.zeros(n-3) - 1) , -1) # Lowerdiagonal elements
         A = a + d + c # Tridiagonal matrix
         start_time = time.time()
-        _lu = sa.lu(A)
         _lu = sa.lu_factor(A)
         v = sa.lu_solve(_lu, b[1:-1])
         v = np.insert(v,0,0 )
