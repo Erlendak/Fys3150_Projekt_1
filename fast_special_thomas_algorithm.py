@@ -49,7 +49,7 @@ class FastSpecialThomasAlgorithm():
         plt.grid()
         plt.xlabel("Avstand ; Meter",size=15)
         plt.ylabel("Potential ; Volt",size=15)
-        plt.title("Potentsial fra ladningen\n'Fast special method'",size=15)
+        plt.title("Potensial fra ladningen\n'Fast special method'",size=15)
         plt.show()
 
     def error(self):
